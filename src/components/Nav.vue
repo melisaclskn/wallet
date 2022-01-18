@@ -32,7 +32,7 @@
         </svg>
       </a>
 
-      <div class="col-md-3 text-end" v-if="!checkUser">
+      <div class="col-md-3 text-end" v-if="!user">
         <button type="button" class="btn btn-outline-primary me-2">
           <router-link to="/login">Login</router-link>
         </button>
@@ -41,7 +41,7 @@
         </button>
       </div>
       <!--Login successful-->
-      <div class="col-md-3 text-end" v-if="checkUser">
+      <div class="col-md-3 text-end" v-if="user">
         <button type="button" class="btn btn-primary">
           <router-link to="/login"> <button @click="logOut">Logout</button></router-link>
         </button>
@@ -58,6 +58,10 @@ export default {
     }
   },
    created() {
+     this.$root.$on('logged-in', () => {
+      this.user = JSON.parse(localStorage.getItem('user'));
+     })
+
       this.user = JSON.parse(localStorage.getItem('user'));
    },
   methods: {
@@ -66,6 +70,7 @@ export default {
       localStorage.removeItem("token");
       localStorage.removeItem("user");
       console.log(localStorage.getItem("user"))
+      this.user = null
       this.$router.push("/login");
     },
     checkUser(){

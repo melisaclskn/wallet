@@ -67,11 +67,11 @@ export default {
           if(response.data) {
             localStorage.setItem("token", response.data.token); 
             localStorage.setItem('user', JSON.stringify(response.data.user));
+            
+          this.$root.$emit('logged-in')
             this.$router.push("/home");
           }
         });
-     
-      
     },
   },
 };
