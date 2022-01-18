@@ -45,7 +45,7 @@ export default {
     async put() {
       
     const headers = { 
-        'Authorization': 'Bearer '+localStorage.getItem("token"),
+        'Authorization': 'Bearer '+ localStorage.getItem("token"),
        
     };
     axios.put('http://192.168.10.70:8000/api/amountOperations',  {received_user_email: this.received_user_email,amount: this.amount}
