@@ -39,20 +39,29 @@ export default {
    created() {
       this.user = JSON.parse(localStorage.getItem('user'));
       console.log(this.user);
+
    },
    methods: {
     async put() {
-      const response = await axios
-        .put(
-          "http://192.168.10.70:8000/api/amountOperations",
-          {
-            received_user_email: this.received_user_email,
-            amount: this.amount,
-          },
+      
+    const headers = { 
+        'Authorization': 'Bearer '+localStorage.getItem("token"),
+       
+    };
+    axios.put('http://192.168.10.70:8000/api/amountOperations',  {received_user_email: this.received_user_email,amount: this.amount}
+    ,{ headers }).then(()=>console.log("money"));
+      // const response = await axios ///////////////////////////
+      //   .put( 
+      //     "http://192.168.10.70:8000/api/amountOperations",
+      //     {
+      //       received_user_email: this.received_user_email,
+      //       amount: this.amount,
+      //     },
           
-        ).then(()=>console.log("money"));
+      //   ).then(()=>console.log("money")); ////////////////////////
       //.then((res) => console.log(res)).catch(error => {console.log(error)});
-
+      
+   
       //this.$router.push("/login");
     },
   }
