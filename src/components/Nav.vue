@@ -42,9 +42,13 @@
       </div>
       <!--Login successful-->
       <div class="col-md-3 text-end" v-if="user">
-        <button type="button" class="btn btn-primary">
-          <router-link to="/login"> <button @click="logOut">Logout</button></router-link>
+        <button type="button" class="btn btn-success">
+          <router-link to="/historyBalance"> History</router-link>
         </button>
+        <button type="button" class="btn btn-primary">
+          <router-link to="/"> <button @click="logOut">Logout</button></router-link>
+        </button>
+      
       </div>
     </header>
   </div>

@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import SignUp from '../views/SignUp.vue'
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
+import HistoryBalance from '../views/HistoryBalance.vue'
 
 Vue.use(VueRouter)
 
@@ -20,7 +21,7 @@ const routes = [
     component: SignUp
   },
   {
-    path: '/Login',
+    path: '/login',
     name: 'Login',
     component: Login
   },
@@ -28,6 +29,11 @@ const routes = [
     path: '/home',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/historyBalance',
+    name: 'HistoryBalance',
+    component: HistoryBalance
   },
   {
     path: '/about',

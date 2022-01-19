@@ -68,7 +68,7 @@ export default {
             localStorage.setItem("token", response.data.token); 
             localStorage.setItem('user', JSON.stringify(response.data.user));
             
-          this.$root.$emit('logged-in')
+            this.$root.$emit('logged-in')
             this.$router.push("/home");
           }
         });
